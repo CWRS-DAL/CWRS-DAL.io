@@ -1,0 +1,10 @@
+---
+title: "Untitled"
+author: "me"
+date: "19/01/2022"
+output: html_document
+---
+
+```{r layout = "l-screen"}
+knitr::include_graphics("water-studies.png")
+```

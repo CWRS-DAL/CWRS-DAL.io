@@ -1,0 +1,34 @@
+name: "cwrs.github.io"
+title: "CWRS Data Hub"
+theme: mytheme.css
+description: |
+  CWRS Data Hub
+output_dir: "docs"
+favicon: water.png
+navbar:
+  right:
+  search: true
+  logo:
+    image: water-studies.png
+    href: https://reillypickard.github.io/CwrsDataHub.io/
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Covid-19 Wastewater Research"
+      href: c19ww.html
+    - text: "Lead Release Control" 
+      href: LRC.html
+    - text: "WWTF Optimization Project"
+      href: wwtp.html
+    - text: "Examples"
+      href: example.html
+    - text: "Tutorials"
+      href: tut.html
+output: distill::distill_article
+ 
+    
+   
+
+
+
+

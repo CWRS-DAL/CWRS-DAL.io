@@ -1,0 +1,357 @@
+---
+title: "Examples"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Motor Trend Car Test Research
+==================================================
+This data represents some of the teams findings in our motor trend car testing project.
+
+##  {.tabset}
+
+### Scatter Plot
+
+
+```{r, include = FALSE}
+library(plotly)
+
+data<-mtcars
+
+data$cyl = as.factor(data$cyl)
+
+legendtitle = list(yref='paper',xref="paper",y=1.05,x=1.1, text="Cylinder",showarrow=F)
+legendtitle2 = list(yref='paper',xref="paper",y=1.05,x=1.1, text="Gear",showarrow=F)
+  g3 <-filter(data, gear == 3)
+    g4 <-filter(data, gear ==4)
+      g5 <-filter(data, gear == 5)
+      gears <- data.frame(cyl = c(g3$cyl, g4$cyl, g5$cyl),
+                          hp = c(g3$hp, g4$hp, g5$hp),
+                          gear = c(g3$gear, g4$gear, g5$gear)
+                          )
+
+```
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+
+   plot_ly(data, x=~hp, y=~wt, color  = ~cyl, type = "scatter", text = ~paste("Gears:", gear, '<br>disp:', disp))%>%
+  layout(
+    title = 'Horsepower vs. Weight',  annotations=legendtitle,  xaxis = list(title = 'Horsepower'), 
+         yaxis = list(title = 'Weight'))
+ 
+```
+
+
+### Bar Plot
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+
+
+ plot_ly(gears, x=~cyl, y=~hp, type = "bar",name = ~gear)%>%
+  layout(
+    title = 'Cylinder vs. Horsepower at Varied Gears', annotations = legendtitle2, xaxis = list(title = 'Cylinder'), 
+         yaxis = list(title = 'Horsepower'))
+
+
+
+```
+
+
+
+### Heat Map
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+plot_ly(data,
+            x = ~wt, 
+            y = ~disp, 
+            z = ~mpg, 
+           
+            colorscale = list(c(0,'red'),
+                              c(0.33,'orange'),
+                              c(0.66, 'yellow'),
+                              c(1, 'green')),
+            colorbar=list(
+              title="MPG"
+            ), 
+                              type = "contour")%>%
+      layout(title = 'MPG vs. Displacement & Weight',  xaxis = list(title = 'Weight'), 
+             yaxis = list(title = 'Displacement'))
+
+
+```
+  
+### Test  
+  
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+  dat <- mtcars
+dat$cyl <- factor(dat$cyl)
+dat$car <- rownames(mtcars)
+
+dat %>% 
+  tidyr::pivot_longer(c(mpg, hp, qsec)) %>% 
+  plot_ly(x = ~car, y = ~value, color = ~cyl, symbol = ~name) %>%
+  add_trace(type='scatter', mode='markers', name = ~cyl) %>% 
+  layout(
+    updatemenus = list(
+      list(
+        type = "list",
+        label = 'Category',
+        buttons = list(
+          list(method = "restyle",
+               args = list('visible', c(TRUE, FALSE, FALSE)),
+               label = "hp"),
+          list(method = "restyle",
+               args = list('visible', c(FALSE, TRUE, FALSE)),
+               label = "mpg"),
+          list(method = "restyle",
+               args = list('visible', c(FALSE, FALSE, TRUE)),
+               label = "qsec")
+        )
+      )
+    )
+  )
+```
+  
+  
+  
+  
+
+Iris Flower Research
+====================================================
+This data represents some of the teams findings in our iris flower research.
+
+##  {.tabset}
+
+### Customize
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+
+
+   
+   p <- plot_ly(iris, x = ~Sepal.Length, y = ~Sepal.Width, color = ~Species, type = "scatter", mode = "markers") %>% 
+  layout(title = '',  xaxis = list(title = 'Size (in)', zeroline = FALSE), 
+             yaxis = list(title = 'Size (in)', zeroline = FALSE),
+    annotations = list(
+      list(
+        text = "<b>Y:</b>", x=0.1, y=1.05, xref='paper', yref='paper',xanchor = "left", showarrow=FALSE
+      ),
+      list(
+        text = "<b>X:</b>", x=0.6, y=1.05, xref='paper', yref='paper',xanchor = "left", showarrow=FALSE
+      )
+    ),
+    updatemenus = list(
+      ## X Axis ##
+      list(
+        y = 1.06, x = 0.9,
+        buttons = list(
+          list(method = "restyle",
+               args = list("x", list(iris$Sepal.Width)),  # put it in a list
+               label = "Sepal Width"),
+          list(method = "restyle",
+               args = list("x", list(iris$Sepal.Length)),  # put it in a list
+               label = "Sepal Length"),
+       list(method = "restyle",
+               args = list("x", list(iris$Petal.Length)),  # put it in a list
+               label = "Petal Length"),
+       list(method = "restyle",
+               args = list("x", list(iris$Petal.Width)),  # put it in a list
+               label = "Petal Width"))),
+      
+      ## Y Axis ##
+      list(
+        y = 1.06,x= 0.4,
+        buttons = list(
+           list(method = "restyle",
+               args = list("y", list(iris$Sepal.Width)),  # put it in a list
+               label = "Sepal Width"),
+          list(method = "restyle",
+               args = list("y", list(iris$Sepal.Length)),  # put it in a list
+               label = "Sepal Length"),
+       list(method = "restyle",
+               args = list("y", list(iris$Petal.Length)),  # put it in a list
+               label = "Petal Length"),
+       list(method = "restyle",
+               args = list("y", list(iris$Petal.Width)),  # put it in a list
+               label = "Petal Width")))
+    )
+    
+    
+    
+    )
+
+p
+
+
+
+```
+
+### Boxplots
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+
+p <- plot_ly(data = iris, x= ~Species, y = ~Sepal.Width, type = 'box') %>%
+ layout(
+    annotations = list(
+      list(
+        text = "<b>Variable:</b>", x=0.05, y=1.13, xref='paper', yref='paper',xanchor = "left", showarrow=FALSE
+      )
+    ),
+    updatemenus = list(
+      list(
+        type = "list",
+        x = 0.25,
+        xanchor = "left",
+        y = 1.15,
+        buttons = list(
+          list(
+            method = "update",
+            args = list(list(y = list(iris$Sepal.Length)),
+                        list(yaxis = list(title = "Sepal.Length"))),
+            label = "Sepal.Length"
+          ),
+          list(
+            method = "update",
+            args = list(list(y =list(iris$Sepal.Width)),
+                        list(yaxis = list(title = "Sepal.Width"))),
+            label = "Sepal.Width"
+          ),
+          list(
+            method = "update",
+            args = list(list(y = list(iris$Petal.Length)),
+                        list(yaxis = list(title = "Petal.Length"))),
+            label = "Petal.Length"
+          ),
+          list(
+            method = "update",
+            args = list(list(y = list(iris$Petal.Width)),
+                        list(yaxis = list(title = "Petal.Width"))),
+            label = "Petal.Width"
+          )
+        )
+      )
+    )
+  )
+p
+
+```
+
+
+US Crime Rate Research
+======================================================================
+This data represents some of the teams findings in our US crime rate research.
+
+##  {.tabset}
+
+### Map
+
+
+```{r, echo = FALSE, fig.dim=c(10, 6), out.width="100%" }
+  library(plotly)
+  df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv")
+  code = df$code
+  
+    d <- USArrests
+  state <- rownames(d)
+  rownames(d) <- NULL
+  df<- cbind(state,d)
+
+  df <- cbind(df,code)
+  
+  
+  df$hover <- with(df, paste(state, '<br>', "Murders", Murder,'<br>', "Assault", Assault, "<br>",
+                             "% Urban Pop.", UrbanPop))
+  # give state boundaries a white border
+  l <- list(color = toRGB("white"), width = 2)
+  # specify some map projection/options
+  g <- list(
+    scope = 'usa',
+    projection = list(type = 'albers usa'),
+    showlakes = TRUE,
+    lakecolor = toRGB('white')
+  )
+  
+  fig <- plot_geo(df, locationmode = 'USA-states')
+  fig <- fig %>% add_trace(
+    z = ~Murder, text = ~hover, locations = ~code,
+    color = ~Murder, colors = 'Reds'
+  )
+  fig <- fig %>% colorbar(title = "Murders per 100K")
+  fig <- fig %>% layout(
+    title = 'US Muder Rates per State<br>(Hover for breakdown)',
+    geo = g
+  )
+  
+  fig
+```
+
+### Scatter Plot
+
+```{r, echo = FALSE, warning = FALSE, message= FALSE, out.width="100%" }
+
+
+ plot_ly(
+  df, x = ~Murder, y = ~Assault,
+  # Hover text:
+  text = ~paste(code, '<br> % Urban Pop.:', UrbanPop),
+  color = ~UrbanPop, size = ~UrbanPop, type = "scatter"
+)%>%
+      layout(title = '',  xaxis = list(title = 'Murders/100K', zeroline = FALSE), 
+             yaxis = list(title = 'Assaults/100k', zeroline = FALSE))
+
+
+
+
+```
+
+
+### Bar Plot
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE, out.width="100%" }
+
+
+df1<- data.frame(
+  code = df$code,
+  height = df$Assault
+)
+
+
+df2<- data.frame(
+  code = df$code,
+  height = df$Murder
+)
+
+```
+
+```{r, echo = FALSE, warning = FALSE, message= FALSE, out.width="100%" }
+
+p <- plot_ly() %>%
+  add_trace(type = 'bar', x=~code,
+            y = df2$height, visible=T)  %>%
+  add_trace(type = 'bar',x= ~code,
+            y = df1$height, visible=F) %>%
+  layout(showlegend = FALSE,
+         xaxis = list(title = 'Sate'),
+    updatemenus = list(
+      list(
+        yanchor = 'auto',
+        buttons = list(
+          list(method = "restyle",
+               args = list("visible", list(T, F)),
+               label = 'Murder'),
+          
+          list(method = "restyle",
+               args = list("visible", list(F,T)),
+               label = 'Assault')
+        ))))
+p
+
+          
+
+```

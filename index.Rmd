@@ -1,0 +1,43 @@
+---
+title: "CWRS Data Hub"
+site: distill::distill_website
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r global, include=FALSE}
+# load data in 'global' chunk so it can be shared
+# by all users of the dashboard
+
+library(distill)
+
+library(plotly)
+
+library(shiny)
+
+library(shinydashboard)
+
+library(ggplot2)
+
+library(ggthemes)
+
+library(dplyr)
+
+library(shinythemes)
+
+library(bslib)
+
+library(lubridate)
+```
+
+This website serves as a hub that displays current CWRS research projects. Please select the project you would like to view. The site was created using the rmarkdown (@markdown) and distill (@distill) packages. 
+
+
+
+ 
+
+
+

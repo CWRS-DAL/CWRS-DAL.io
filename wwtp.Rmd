@@ -1,0 +1,32 @@
+---
+title: "WWTF Optimization Project"
+author: 
+  - name: Lindsay Anderson
+  - name: Sydney Lowe
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Over the past year, samples of influent water have been collected and jar tested for turbidity, UVT, and TSS. Once the influent sample was tested for the variables mentioned above, the influent water was poored in to one of 6 jars. Each jar was treated with a different combination of alum and polymer doses. Each jar was mixed at 250RPM with just alum at, before adding the polymer dose and mixing at 120RPM. After the polymer was mixed, the jars were left to settle to let the polymer induced flocs sink to the bottom. The alum mix time, polymer mixtime, and settle time were all determined corresponding to one of 5 flow levels. The flow levels, in m3/hr, were 1500, 2000, 2400, 3105, and 3991.
+
+Once the settling time was up, water was collected from the top of each jar and tested for turbidity, UVT, and TSS. These values were compared with the results yielded by the influent sample by calculating the percent reduction of turbidity and TSS, and the percent increase of UVT. By tracking which combinations of alum and polymer were added to each jar, tracking the treatment performance of each test will allow to find an optimal dosing recipe for a given flow level and influent turbidity level.
+
+The Web application was created using RShiny (@shiny) and graphics were created using ggplot2 (@ggplot2) and plotly packages (@plotly).  <br>
+
+
+
+```{r, echo= FALSE, layout="l-screen", fig.cap = "Link to Live Site: https://cwrs.shinyapps.io/WWTFOptimizationv2/" }
+knitr::include_app("https://cwrs.shinyapps.io/WWTFOptimizationv2/",
+  height = "1000px")
+```
+
+
+# Acknowledgments {.appendix}
+
+We'd like to thank the following funding sources for making this work possible: 
+
+
+

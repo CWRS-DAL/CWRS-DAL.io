@@ -1,0 +1,50 @@
+---
+title: "Tutorials and Cheatsheets"
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+ <font size="+2"> R Website With Cheatsheets: 
+```{r, echo= FALSE, layout="l-page", fig.cap = "https://education.rstudio.com/learn/beginner/" }
+knitr::include_app("https://education.rstudio.com/learn/beginner/",
+  height = "600px")
+```
+
+ <font size="+2"> Great ggplot Tutorial:
+```{r, echo= FALSE, layout="l-page", fig.cap = "http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html" }
+
+knitr::include_app("http://r-statistics.co/Complete-Ggplot2-Tutorial-Part1-With-R-Code.html",
+  height = "600px")
+  
+```
+
+
+ <font size="+2"> Gallery of Plotly Graphs w/ Code: 
+```{r, echo= FALSE, layout="l-page", fig.cap = "https://plotly.com/r/" }
+knitr::include_app("https://plotly.com/r/", height = "600px")
+```
+
+ <font size="+2"> Reading Files:
+```{r, echo= FALSE, layout="l-page", fig.cap = "https://www.r-bloggers.com/2021/06/reading-data-from-excel-files-xlsxlsxcsv-into-r-quick-guide/" }
+knitr::include_app("https://www.r-bloggers.com/2021/06/reading-data-from-excel-files-xlsxlsxcsv-into-r-quick-guide/",
+                    height = "600px")
+
+```
+
+ <font size="+2"> Shiny Dashboard Tutorial:
+
+```{r, echo= FALSE, layout="l-page", fig.cap = "https://mastering-shiny.org/" }
+knitr::include_app("https://mastering-shiny.org/",
+  height = "600px")
+```
+
+
+ <font size="+2"> Introduction to GitHub:
+```{r, echo= FALSE, layout="l-page", fig.cap = "https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners" }
+knitr::include_app("https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners",
+  height = "600px")
+```
+

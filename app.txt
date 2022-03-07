@@ -1,0 +1,449 @@
+library(shiny)
+library(leaflet)
+library(shinydashboard)
+library(plotly)
+library(ggplot2)
+
+library(shinyjs)
+
+
+library(dplyr)
+
+library(shinythemes)
+
+library(bslib)
+
+library(lubridate)
+
+library(shinydashboard)
+
+library(ggplot2)
+
+library(ggthemes)
+
+library(dplyr)
+
+library(shinythemes)
+
+library(bslib)
+
+library(htmltools)
+library(DT)
+
+
+
+data<- read.csv("map.csv")
+
+DATA<-data.frame(
+  sample = as.factor(data[,1]),
+  comm = as.factor(data[,2]),
+  lat = data[,3],
+  long = data[,4], 
+  date = as.Date(data[,5]),
+  analyte = as.factor(data[,6]),
+  val = as.numeric(data[,7])
+  
+)
+
+
+
+
+
+
+ecoli <- read.csv("ecoli.csv")
+
+ecoli <- data.frame(date = as.Date(ecoli[,1]),
+                    val = as.numeric(ecoli[,2]),
+                    site = as.factor(ecoli[,3]),
+                    comm = as.factor(ecoli[,4])
+                  
+                    )
+
+ecoli$date <- as.factor(format(as.Date(ecoli$date), format = "%b '%y"))
+levels(ecoli$date) <- c("Oct '19", "Nov '19", " Dec '19", "Jan '20", "Feb '20", "Mar '20", "Apr '20", "May '20",
+                        "Jun '20", "Jul '20", "Aug '20", "Sep ' 20"
+                        )
+
+
+
+
+
+#ui----
+
+ui <-  fluidPage( 
+  
+  div(class="outer",
+      
+      tags$head(
+        # Include our custom CSS
+        includeCSS("styles.css")
+ 
+      ),
+  
+            
+            
+             
+            
+  leafletOutput("map", width="100%", height="100%")),
+  
+  
+  absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
+                draggable = F, top = 60, left = "auto", right = 20, bottom = "auto",
+                width = 800, height = "auto",
+                            
+      uiOutput("text"),
+      fluidRow(
+            column(width = 12, 
+                  
+                     box(plotlyOutput("plot"), width = NULL, title = "", solidHeader = TRUE)),
+      column(width = 12,
+                   box(plotlyOutput("plot2"), width = NULL, title = "", solidHeader = TRUE))),       
+         
+      fluidRow(
+        column(width =2,
+                     uiOutput("check")),
+        
+        column(width =5,
+                     
+                     uiOutput("dateRange")),
+        column(width =2,
+                     
+                     actionButton(inputId = "btn_update_plot",
+                                  label = "Update Plot", style = 'height: 50px; width = "50%"; padding: 5px 5px 5px 5px;margin: 5px 5px 5px 5px;')
+               ),
+        column(width =2,
+                     downloadButton(
+                       outputId = "downloader",
+                       label = "Download PDF",  style = 'height: 50px; width = "30%"; padding: 5px 5px 5px 5px;margin: 5px 5px 5px 5px;')
+                     ))
+
+                     
+                     )
+              )
+              
+              
+          
+         
+
+
+
+
+
+#server----
+
+library(fontawesome) #devtools::install_github("rstudio/fontawesome")
+server <- function(input, output, session) {
+  
+  
+  output$map <- renderLeaflet({
+    leaflet(DATA) %>%addTiles()%>%
+      addAwesomeMarkers(lng = 	
+                          unique(DATA$long), lat = unique(DATA$lat),
+                 label = ~paste( " Site", unique(DATA$sample) ), popup = ~paste("Site", unique(DATA$sample) ),
+                 clusterOptions = markerClusterOptions( 
+                   maxClusterRadius = 5
+                 ), icon = leaflet::makeAwesomeIcon(
+                   text = unique(DATA$sample),
+                   iconColor = "white",
+                   markerColor = "blue"
+                 )
+                 
+                 
+                 
+                 
+                 )%>%
+      # addPopups(	
+      #              mean(map$long[1:4]), 	
+      #              mean(map$lat[1:4]), "Eskasoni",
+      #                          options = popupOptions(closeButton = T,  closeOnClick = F,keepInView = FALSE
+      #                                                 )
+      #            
+      # )%>%addPopups(	
+      #   
+      #   mean(map$long[5:8]), 	
+      #   
+      #   mean(map$lat[5:8]), "St. Marys",
+      #   options = popupOptions(closeButton = T,  closeOnClick = F,keepInView = FALSE
+      #                          )
+      #   
+      # )
+ addPolygons(
+        lng = unique(DATA$long[1:4]),
+        lat = unique(DATA$lat[1:4]),
+        
+       
+        color = "#E84A5F",
+        # set the opacity of the outline
+        opacity = 1,
+        # set the stroke width in pixels
+        weight = 1,
+        # set the fill opacity
+        fillOpacity = 0.6
+      
+  )%>%addPolygons(
+    lng = unique(DATA$long[5:8]),
+    lat = unique(DATA$lat[5:8]),
+    
+    
+    color = "#E84A5F",
+    # set the opacity of the outline
+    opacity = 1,
+    # set the stroke width in pixels
+    weight = 1,
+    # set the fill opacity
+    fillOpacity = 0.6
+  )
+    
+    })
+  
+  
+  
+
+  
+  
+  datasetInput  <- eventReactive(
+    input$map_marker_click$lng,
+    {
+      dataset = DATA
+      
+      if(input$map_marker_click$lng > -61){
+        dataset<- DATA %>% filter(comm == "Community 1")
+      }
+      if(input$map_marker_click$lng < -66){
+        dataset <- DATA %>% filter(comm == "Community 2")
+        
+      }
+      dataset
+    }
+   
+  ) 
+  
+  
+  colidataInput  <- eventReactive(
+    input$map_marker_click$lng,
+    {
+      colidata = ecoli
+      
+      if(input$map_marker_click$lng > -61){
+        colidata<- ecoli %>% filter(comm == "1")
+      }
+      if(input$map_marker_click$lng < -66){
+        colidata <- ecoli %>% filter(comm == "2")
+        
+      }
+      colidata
+    }
+    
+  ) 
+  
+  p2 <- eventReactive(
+    input$map_marker_click$lng,
+    
+    {
+      p2 <-  ggplot(colidataInput(), aes(fill=site,  y=val, x = date)) + 
+        geom_bar(position="dodge", stat="identity", width = 0.5, size = 0.5, color = "black")+ 
+        scale_fill_manual(values = c("#99c7ff", "#4283d4"))+
+        theme_calc()+ scale_y_continuous(breaks = seq(0,5,1))+
+        ylab("") + xlab("Date")+ theme(text = element_text(size = 15),
+                                       axis.text.x = element_text(angle = 90)
+                                       )+
+        guides(fill = guide_legend("Site"))+ ylab("Samples Collected") + xlab("Month")+ggtitle("E.Coli Monthly Sampling Frequency")
+      
+    }
+    
+  )
+  
+  output$plot2 <- renderPlotly({
+    ggplotly(p2())
+  })
+    
+    
+  output$dateRange <- renderUI({
+    dateRangeInput("date1", h6("Date Range:"),
+                   start =
+                     as.character(format(as.Date(min(datasetInput()$date))),"yyyy-mm-dd"), # Start
+                   end =
+                     as.character(format(as.Date(max(datasetInput()$date))),"yyyy-mm-dd"), # End
+                   min =
+                     as.character(format(as.Date(min(datasetInput()$date))),"yyyy-mm-dd"),
+                   max =
+                     as.character(format(as.Date(max(datasetInput()$date))),"yyyy-mm-dd"))
+    
+    
+    
+  })
+  newdataInput <- reactive ({
+    newdata <- subset(datasetInput(), date >= as.Date(input$date1[1]) & date <= 
+                        as.Date(input$date1[2]))
+  })
+ 
+
+  
+  
+  
+output$check <- renderUI({
+  
+  checkboxGroupInput("fun",  label = h4("Select Location(s)"), 
+                 choices = c(levels(datasetInput()$sample)))
+
+})
+
+  
+
+  
+  
+  
+
+
+community <- eventReactive(
+  input$map_marker_click$lng,
+  {
+    text = ""
+  
+  if(input$map_marker_click$lng > -61){
+    text = "Eskasoni"
+  }
+    if(input$map_marker_click$lng < -66){
+      text = "St. Mary's"
+    }
+   
+    text
+  }
+)
+  
+
+output$text <- renderText({
+  
+  HTML(paste0( '<font size="+2">',
+               "Community Choice: ", community()
+  ))
+})
+
+  
+  
+  
+
+  
+  
+  d1Input<- reactive({
+    d1 <- newdataInput() %>% filter(newdataInput()$sample == "1")
+    
+  })
+  
+  d2Input<- reactive({
+    d2 <- newdataInput() %>% filter(newdataInput()$sample == "2")
+    
+  })
+  
+  d3Input<- reactive({
+    d3 <- newdataInput() %>% filter(newdataInput()$sample == "3")
+    
+  })
+  
+  d4Input<- reactive({
+    d4 <- newdataInput() %>% filter(newdataInput()$sample == "4")
+    
+  })
+
+  
+  
+  
+
+ 
+ 
+
+
+
+
+
+  g <- eventReactive(
+      c(input$map_marker_click,  input$btn_update_plot, input$fun), 
+    
+    
+    { 
+      ggp = ggplot()+theme_calc() + xlab("Date")+
+        ylab("Chlorine Residual (mg/L)") + scale_y_continuous(breaks = seq(0,2,0.2), limits = c(0,2)) +  
+        scale_x_date(date_labels =  "%b '%y", breaks = "1 month") + 
+        scale_color_brewer(palette = "Set1")+ theme(text = element_text(size = 15),
+                                                    axis.text.x = element_text(angle = 90))+
+        guides(col = guide_legend("Location")) +ggtitle("Chlorine Residual vs. Time")
+      
+  
+  
+      if ("1" %in% input$fun) 
+      { 
+        ggp <- ggp +  
+          geom_point(data = d1Input(), aes(x = date, y = val, col=sample), size = 1.5)
+          
+      }
+      
+      if ("2" %in% input$fun)  
+      { 
+        ggp <- ggp + 
+          geom_point(data = d2Input(), aes(x = date, y = val, col=sample), size = 1.5)
+      }
+      
+      if ("3" %in% input$fun) 
+      { 
+        ggp <- ggp + 
+          geom_point(data = d3Input(), aes(x = date, y = val, col=sample), size = 1.5) 
+      }
+      if ("4" %in% input$fun) 
+      { 
+        ggp <- ggp + 
+          geom_point(data = d4Input(), aes(x = date, y = val, col=sample), size = 1.5) 
+      }
+      
+  
+      ggp
+    }
+   
+  )
+
+
+gpdf<- reactive({
+  gpdf<- g() + theme(text = element_text(size = 10)
+                     )
+})
+
+p2pdf <- reactive({
+  p2pdf<- p2() + theme(text = element_text(size = 10)
+                      )
+})
+  
+  output$plot <- renderPlotly({
+    ggplotly(g())
+  })
+  
+
+
+  
+  
+  output$downloader <- downloadHandler(
+    filename = function() {
+      paste("afnwareport_", community(), ".pdf", sep="")
+    },
+    content = 
+      function(file)
+      {
+        output<-rmarkdown::render(
+          input = "afnwareport.Rmd",
+          output_format = "pdf_document",
+          #output_file = "output.pdf",
+          params = list( date1 = format(min(newdataInput()$date), format = "%B %d, %Y"),
+                         date2 = format(max(newdataInput()$date), format = "%B %d, %Y"),
+                         plotg = gpdf(),
+                         plot2 = p2pdf(),
+                         comm = community()
+          ))
+        file.copy(output, file)
+      })  
+  
+
+  
+}
+
+
+
+
+shinyApp(ui, server)
