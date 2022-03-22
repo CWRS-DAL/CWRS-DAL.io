@@ -20,6 +20,8 @@ navbar:
       href: LRC.html
     - text: "WWTF Optimization Project"
       href: wwtp.html
+    - text: "Lumin Ultra"
+      href: lumin.html
     - text: "Examples"
       href: example.html
     - text: "Tutorials"
