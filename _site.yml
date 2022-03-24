@@ -22,10 +22,13 @@ navbar:
       href: wwtp.html
     - text: "Lumin Ultra"
       href: lumin.html
+    - text: "AFNWA"
+      href: afnwa.html
     - text: "Examples"
       href: example.html
     - text: "Tutorials"
       href: tut.html
+
 output: distill::distill_article
  
     
