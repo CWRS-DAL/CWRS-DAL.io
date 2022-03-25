@@ -1,0 +1,16 @@
+---
+title: "Lake Major Pilot Plant"
+author: "Ryan Swinamer"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site:    https://cwrs.shinyapps.io/LakeMajor_Dashboard/" }
+knitr::include_app("   https://cwrs.shinyapps.io/LakeMajor_Dashboard/",
+  height = "1000px")
+```
