@@ -8,7 +8,7 @@ bibliography: references.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-<p><font>This model generates lead solubility predictions using the LEADSOL (@schock1996) and minteq.v4 (@charlton2011; @parkhurst2013) databases. Lead binding to humic substances is modeled using an approximation to the Windermer Humic Aqueous Model (@tipping1992; see pbcusol::eq_sol_wham()). Lead concentration is shown as a function of stagnation time inside a lead pipe using a model described by Kuch and Wagner (@kuch1983).</p>
+<p><font>This model generates lead solubility predictions using the LEADSOL (@schock1996) and minteq.v4 (@charlton2011; @parkhurst2013) databases. Lead binding to humic substances is modeled using an approximation to the Windermere Humic Aqueous Model (@tipping1992; see pbcusol::eq_sol_wham()). Lead concentration is shown as a function of stagnation time inside a lead pipe using a model described by Kuch and Wagner (@kuch1983).</p>
 
 <p>  This model can be seen below and a link to the live site is given </p></font>
 
