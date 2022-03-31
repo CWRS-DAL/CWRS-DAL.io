@@ -9,9 +9,9 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Web application using wastewater data to show Nova Scotia Covid-19 trends.
+Web application using wastewater data to show Nova Scotia Covid-19 trends (@li_2022).
 
-The Web application was created using RShiny (@shiny) and graphics were created using  the plotly package (@plotly).  
+The Web application was created using RShiny (@shiny) and graphics were created using the plotly package (@plotly).  
 <br>
 
 
@@ -21,11 +21,17 @@ knitr::include_app(" https://cwrs.shinyapps.io/public_dashboard/",
 ```
 
 
-Preview: 
+Internal Version:
 
-```{r, echo= FALSE}
-knitr::include_graphics("c19ww_preview.png")
+```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site: https://cwrs.shinyapps.io/APP_version_1_0/" }
+knitr::include_app("https://cwrs.shinyapps.io/APP_version_1_0/",
+  height = "600px")
 ```
+
+
+
+
+
 
 
 
