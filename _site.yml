@@ -10,7 +10,7 @@ navbar:
   search: true
   logo:
     image: water-studies.png
-    href: https://reillypickard.github.io/CwrsDataHub.io/
+    href: http://centreforwaterresourcesstudies.dal.ca/research
   left:
     - text: "Home"
       href: index.html
@@ -36,8 +36,6 @@ navbar:
       href: lumin.html
     - text: "Other"
       menu:
-        - text: "Examples"
-          href: example.html
         - text: "Tutorials"
           href: tut.html
 

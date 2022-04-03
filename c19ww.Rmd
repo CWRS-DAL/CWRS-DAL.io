@@ -1,7 +1,7 @@
 ---
-title: "Covid-19 Wastewater Research"
+title: "Nova Scotia Wastewater COVID-19 Surveillance"
 author: 
-  - name: Bofu Li
+  - name: Bofu Li, PhD
 bibliography: references.bib
 ---
 
@@ -9,7 +9,11 @@ bibliography: references.bib
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Web application using wastewater data to show Nova Scotia Covid-19 trends (@li_2022).
+COVID-19 is a respiratory illness with a wide range of mild to severe symptoms. SARS-CoV-2, the virus that causes COVID-19, can also affect the gastrointestinal system and is shed in the feces of people infected with the virus. As such, wastewater may be used to determine the presence of the virus either before someone develops symptoms or receives a positive test result, or if they are asymptomatic. On a larger scale, wastewater may be monitored for SARS-CoV-2 to learn more about the prevalence of COVID-19 infections in a given population.
+
+The dashboard illustrates the SARS-CoV-2 viral RNA signal in wastewater collected from four wastewater treatment facilities (Halifax, Dartmouth, Mill Cove, and Eastern Passage) in Nova Scotia's central zone. It is noted that data has not been normalized to treatment plant flow (or something along these lines).
+
+For attribution, please cite this work as (@li_2022).
 
 <br>
 
@@ -20,20 +24,15 @@ knitr::include_app(" https://cwrs.shinyapps.io/public_dashboard/",
 ```
 
 
-Internal Version:
+Dashboard for research partners:
+
+The dashboard illustrates the SARS-CoV-2 viral RNA signal in wastewater collected in wastewater treatment facilities and communities.
 
 ```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site: https://cwrs.shinyapps.io/APP_version_1_0/" }
 knitr::include_app("https://cwrs.shinyapps.io/APP_version_1_0/",
   height = "600px")
 ```
 
-
-
-
-
-
-
-
 # Acknowledgments {.appendix}
 
-We'd like to thank the following funding sources for making this work possible: 
+We'd like to thank the following funding sources for making this work possible: [Research Nova Scotia](https://researchns.ca/), [Halifax Water](https://www.halifaxwater.ca/), [Natural Sciences and Engineering Research Council of Canada (NSERC)](https://www.nserc-crsng.gc.ca/index_eng.asp), [LuminUltra Technologies](https://www.luminultra.com/) and [Genome Atlantic](https://genomeatlantic.ca/) 
