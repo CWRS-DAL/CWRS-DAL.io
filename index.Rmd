@@ -1,7 +1,6 @@
 ---
-title: "CWRS Data Hub"
+title: "Centre of Water Resources Studies (CWRS) Data Hub"
 site: distill::distill_website
-bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -33,8 +32,29 @@ library(bslib)
 library(lubridate)
 ```
 
-This website serves as a hub that displays current CWRS research projects. Please select the project you would like to view. The site was created using the rmarkdown (@markdown) and distill (@distill) packages. 
+This website serves as a data hub that displays projects conducted by Centre of Water Resources Studies (CWRS), Dalhousie University:
 
+
+[Nova Scotia wastewater COVID-19 surveillance](https://cwrs-dal.github.io/CWRS-DAL.io/c19ww.html)
+
+[Wastewater treatment plant optimization](https://cwrs-dal.github.io/CWRS-DAL.io/wwtp.html)
+
+[Drinking water treatment plant optimization](https://cwrs-dal.github.io/CWRS-DAL.io/lmp.html)
+
+[Lead (Pb) solubility modelling](https://cwrs-dal.github.io/CWRS-DAL.io/LRC.html)
+
+[R packages developed by our team](https://cwrs-dal.github.io/CWRS-DAL.io/pack.html)
+
+<br>
+Contact:
+
+Centre for Water Resources Studies
+Office D-514, Dalhousie University
+1360 Barrington Street
+Halifax Nova Scotia
+Canada, B3H 4R2
+902.494.6070
+Email: water@dal.ca
 
 
  
