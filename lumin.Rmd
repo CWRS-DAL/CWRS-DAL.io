@@ -1,5 +1,5 @@
 ---
-title: "Lumin Ultra Data Dashboard"
+title: "LU"
 ---
 
 

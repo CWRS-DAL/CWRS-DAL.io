@@ -22,9 +22,9 @@ navbar:
           href: wwtp.html
     - text: "Drinking Water Dashboards"
       menu:
-        - text: "AFNWA"
+        - text: "Water System A"
           href: afnwa.html
-        - text: "Lake Major"
+        - text: "Water System B"
           href: lmp.html
     - text: "Models and Packages"
       menu: 
@@ -32,8 +32,8 @@ navbar:
           href: LRC.html
         - text: "Packages"
           href: pack.html
-    - text: "Lumin Ultra"
-      href: lumin.html
+ #   - text: "Lumin Ultra"
+ #     href: lumin.html
     - text: "Other"
       menu:
         - text: "Tutorials"

@@ -1,5 +1,5 @@
 ---
-title: "AFNWA Community Dashboard"
+title: "Water System A Dashboard"
 ---
 
 
@@ -7,9 +7,6 @@ title: "AFNWA Community Dashboard"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-
-
 
 ```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site:    https://cwrs.shinyapps.io/AFNWA_option2/" }
 knitr::include_app("   https://cwrs.shinyapps.io/AFNWA_option2/",
