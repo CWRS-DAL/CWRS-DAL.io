@@ -1,7 +1,7 @@
 ---
 title: "Nova Scotia Wastewater COVID-19 Surveillance"
-author: 
-  - name: Bofu Li, PhD
+author:
+- name: Bofu Li, PhD
 bibliography: references.bib
 ---
 
@@ -13,10 +13,11 @@ COVID-19 is a respiratory illness with a wide range of mild to severe symptoms. 
 
 The dashboard illustrates the SARS-CoV-2 viral RNA signal in wastewater collected from four wastewater treatment facilities (Halifax, Dartmouth, Mill Cove, and Eastern Passage) in Nova Scotia's central zone. It is noted that data has not been normalized to treatment plant flow (or something along these lines).
 
-For attribution, please cite this work as (@li_2022).
+For attribution, please cite this dashboard as (@li_2022).
+
+CWRS team also published this work at peer-reviewed journals (@parra2022development, @hayes2021novel, @huang2021detection, @hayes2022operational). 
 
 <br>
-
 
 ```{r, echo= FALSE, layout="l-page", fig.cap = "Link to the dashboard (full screen): https://cwrs.shinyapps.io/public_dashboard/" }
 knitr::include_app(" https://cwrs.shinyapps.io/public_dashboard/",
