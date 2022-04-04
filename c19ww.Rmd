@@ -18,7 +18,7 @@ For attribution, please cite this work as (@li_2022).
 <br>
 
 
-```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site: https://cwrs.shinyapps.io/public_dashboard/" }
+```{r, echo= FALSE, layout="l-page", fig.cap = "Link to the dashboard (full screen): https://cwrs.shinyapps.io/public_dashboard/" }
 knitr::include_app(" https://cwrs.shinyapps.io/public_dashboard/",
   height = "600px")
 ```
@@ -28,7 +28,7 @@ Dashboard for research partners:
 
 The dashboard illustrates the SARS-CoV-2 viral RNA signal in wastewater collected in wastewater treatment facilities and communities.
 
-```{r, echo= FALSE, layout="l-page", fig.cap = "Link to Live Site: https://cwrs.shinyapps.io/APP_version_1_0/" }
+```{r, echo= FALSE, layout="l-page", fig.cap = "Link to the dashboard (full screen): https://cwrs.shinyapps.io/APP_version_1_0/" }
 knitr::include_app("https://cwrs.shinyapps.io/APP_version_1_0/",
   height = "600px")
 ```
