@@ -26,12 +26,10 @@ navbar:
           href: afnwa.html
         - text: "Water System B"
           href: lmp.html
-    - text: "Models and Packages"
-      menu: 
-        - text: "Lead Release Control" 
-          href: LRC.html
-        - text: "Packages"
-          href: pack.html
+    - text: "Lead (Pb) corrosion control"
+      href: LRC.html
+    - text: "R packages & data analyses"
+      href: pack.html
     - text: "Other"
       menu:
         - text: "Tutorials"
