@@ -6,7 +6,7 @@ title: "R packages and data analyses developed by CWRS team"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# R pacakges
+# R packages
 
 [Analyze field-flow fractionation data (Benjamin Trueman, PhD)](https://github.com/bentrueman/fffprocessr)
 
