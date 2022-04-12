@@ -14,8 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Use PHREEQC in R to predict equilibrium lead and copper solubility (Benjamin Trueman, PhD)](https://github.com/bentrueman/pbcusol)
 
+[Time series decomposition using robust GAMs with continuous-time autocorrelation and left-censoring (Benjamin Trueman, PhD)](https://github.com/bentrueman/bgamcar1)
+
 # Data analysis
 
 [Miscellaneous data analysis topics with a focus on water quality (Benjamin Trueman, PhD)](https://bentrueman.github.io/)
 
-[Time series decomposition using robust GAMs with continuous-time autocorrelation and left-censoring (Benjamin Trueman, PhD)](https://github.com/bentrueman/gam-car1)
