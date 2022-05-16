@@ -113,7 +113,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   <link rel="icon" type="image/png" href="water.png"/>
 
-  <meta name="article:author" content="Ben Trueman, PhD"/>
+  <meta name="article:author" content="Ben Trueman"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="CWRS Data Hub: Lead Release Control"/>
@@ -135,7 +135,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lead Release Control"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Ben Trueman, PhD"]}]}]},{"type":"character","attributes":{},"value":["references.bib"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Lead Release Control"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Ben Trueman"]}]}]},{"type":"character","attributes":{},"value":["references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2414,7 +2414,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: var(--hover-color, white);
   }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2434,7 +2434,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Lead Release Control","authors":[{"author":"Ben Trueman, PhD","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
+{"title":"Lead Release Control","authors":[{"author":"Ben Trueman","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2442,7 +2442,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a class="logo" href="http://centreforwaterresourcesstudies.dal.ca/research">
+<a class="logo" href="https://reillypickard.github.io/CwrsDataHub.io/">
 <img src="water-studies.png" alt="Logo"/>
 </a>
 <a href="index.html" class="title">CWRS Data Hub</a>
@@ -2465,12 +2465,22 @@ Drinking Water Dashboards
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="afnwa.html">Water System A</a>
-<a href="lmp.html">Water System B</a>
+<a href="afnwa.html">AFNWA</a>
+<a href="lmp.html">Lake Major</a>
 </div>
 </div>
-<a href="LRC.html">Lead (Pb) corrosion control</a>
-<a href="pack.html">R packages &amp; data analyses</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Models and Packages
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="LRC.html">Lead Release Control</a>
+<a href="pack.html">Packages</a>
+</div>
+</div>
+<a href="lumin.html">Lumin Ultra</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Other
@@ -2478,7 +2488,9 @@ Other
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
+<a href="example.html">Examples</a>
 <a href="tut.html">Tutorials</a>
+<a href="a.html">Sean's Poster</a>
 </div>
 </div>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
@@ -2500,23 +2512,23 @@ Other
 </div>
 
 <div class="d-byline">
-  Ben Trueman, PhD  
+  Ben Trueman  
   
 
 </div>
 
 <div class="d-article">
 <p>
-<font>This model generates lead solubility predictions using the LEADSOL (<span class="citation" data-cites="schock1996"><a href="#ref-schock1996" role="doc-biblioref">Schock, Wagner, and Oliphant</a></span>) and minteq.v4 (<span class="citation" data-cites="charlton2011"><a href="#ref-charlton2011" role="doc-biblioref">Charlton and Parkhurst</a></span>; <span class="citation" data-cites="parkhurst2013"><a href="#ref-parkhurst2013" role="doc-biblioref">Parkhurst and Appelo</a></span>) databases. Lead binding to humic substances is modeled using an approximation to the Windermere Humic Aqueous Model (<span class="citation" data-cites="tipping1992"><a href="#ref-tipping1992" role="doc-biblioref">Tipping and Hurley</a></span>; see pbcusol::eq_sol_wham()). Lead concentration is shown as a function of stagnation time inside a lead pipe using a model described by Kuch and Wagner (<span class="citation" data-cites="kuch1983"><a href="#ref-kuch1983" role="doc-biblioref">Kuch and Wagner</a></span>).
+<font>This model generates lead solubility predictions using the LEADSOL (<span class="citation" data-cites="schock1996"><a href="#ref-schock1996" role="doc-biblioref">Schock, Wagner, and Oliphant</a></span>) and minteq.v4 (<span class="citation" data-cites="charlton2011"><a href="#ref-charlton2011" role="doc-biblioref">Charlton and Parkhurst</a></span>; <span class="citation" data-cites="parkhurst2013"><a href="#ref-parkhurst2013" role="doc-biblioref">Parkhurst and Appelo</a></span>) databases. Lead binding to humic substances is modeled using an approximation to the Windermer Humic Aqueous Model (<span class="citation" data-cites="tipping1992"><a href="#ref-tipping1992" role="doc-biblioref">Tipping and Hurley</a></span>; see pbcusol::eq_sol_wham()). Lead concentration is shown as a function of stagnation time inside a lead pipe using a model described by Kuch and Wagner (<span class="citation" data-cites="kuch1983"><a href="#ref-kuch1983" role="doc-biblioref">Kuch and Wagner</a></span>).
 </p>
 <p>
 This model can be seen below and a link to the live site is given
 </p>
 <p></font></p>
 <h3 id="model">Model</h3>
-<div class="layout-chunk" data-layout="l-page">
+<div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<iframe src="https://bentrueman.shinyapps.io/shinypbcusol/?showcase=0" width="624" height="1000px" data-external="1">
+<iframe src="https://bentrueman.shinyapps.io/shinypbcusol/?showcase=0" width="100%" height="1000px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 1: Link to Live Site: <a href="https://bentrueman.shinyapps.io/shinypbcusol/" class="uri">https://bentrueman.shinyapps.io/shinypbcusol/</a>
@@ -2558,7 +2570,11 @@ Tipping, E., and M. A. Hurley. <span>“1992.”</span> <em>A Unifying Model of 
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 
