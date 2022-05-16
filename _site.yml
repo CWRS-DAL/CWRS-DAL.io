@@ -10,7 +10,7 @@ navbar:
   search: true
   logo:
     image: water-studies.png
-    href: http://centreforwaterresourcesstudies.dal.ca/research
+    href: https://reillypickard.github.io/CwrsDataHub.io/
   left:
     - text: "Home"
       href: index.html
@@ -22,18 +22,26 @@ navbar:
           href: wwtp.html
     - text: "Drinking Water Dashboards"
       menu:
-        - text: "Water System A"
+        - text: "AFNWA"
           href: afnwa.html
-        - text: "Water System B"
+        - text: "Lake Major"
           href: lmp.html
-    - text: "Lead (Pb) corrosion control"
-      href: LRC.html
-    - text: "R packages & data analyses"
-      href: pack.html
+    - text: "Models and Packages"
+      menu: 
+        - text: "Lead Release Control" 
+          href: LRC.html
+        - text: "Packages"
+          href: pack.html
+    - text: "Lumin Ultra"
+      href: lumin.html
     - text: "Other"
       menu:
+        - text: "Examples"
+          href: example.html
         - text: "Tutorials"
           href: tut.html
+        - text: "Sean's Poster"
+          href: a.html
 
 output: distill::distill_article
  
