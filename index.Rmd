@@ -1,6 +1,7 @@
 ---
 title: "Centre of Water Resources Studies (CWRS) Data Hub"
 site: distill::distill_website
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -10,25 +11,15 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r global, include=FALSE}
 # load data in 'global' chunk so it can be shared
 # by all users of the dashboard
-
 library(distill)
-
 library(plotly)
-
 library(shiny)
-
 library(shinydashboard)
-
 library(ggplot2)
-
 library(ggthemes)
-
 library(dplyr)
-
 library(shinythemes)
-
 library(bslib)
-
 library(lubridate)
 ```
 
@@ -55,9 +46,3 @@ Halifax Nova Scotia
 Canada, B3H 4R2
 902.494.6070
 Email: water@dal.ca
-
-
- 
-
-
-

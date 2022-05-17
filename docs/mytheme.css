@@ -33,11 +33,15 @@ html {
   --navbar-font:     'Alata', sans-serif;        /* edited */
 }
 
+
+
 /*-- ARTICLE METADATA --*/
 
 d-title{
   margin-bottom: -20px;
 }
+
+
 
 d-byline {
   --heading-size:    20px;

@@ -32,8 +32,6 @@ navbar:
           href: LRC.html
         - text: "Packages"
           href: pack.html
-    - text: "Lumin Ultra"
-      href: lumin.html
     - text: "Other"
       menu:
         - text: "Examples"
