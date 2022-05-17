@@ -3,7 +3,7 @@ title: "."
 css: theme2.css
 ---
 
-```{r,layout="l-page",  out.width="120%",message = F, warning=F, echo =F}
+```{r,layout="l-page",message = F, warning=F, echo =F}
 knitr::include_app("IUVA.pdf", height = "800px")
 ```
 
