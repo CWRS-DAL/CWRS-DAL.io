@@ -1,22 +1,12 @@
 ---
-title: "R packages and data analyses developed by CWRS team"
+title: "Packages"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# R packages
-
-[Analyze field-flow fractionation data (Benjamin Trueman, PhD)](https://github.com/bentrueman/fffprocessr)
-
-[A collection of R functions for common data analysis tasks at the CWRS (Benjamin Trueman, PhD)](https://github.com/bentrueman/cwrshelpr)
-
-[Use PHREEQC in R to predict equilibrium lead and copper solubility (Benjamin Trueman, PhD)](https://github.com/bentrueman/pbcusol)
-
-[Time series decomposition using robust GAMs with continuous-time autocorrelation and left-censoring (Benjamin Trueman, PhD)](https://github.com/bentrueman/bgamcar1)
-
-# Data analysis
-
-[Miscellaneous data analysis topics with a focus on water quality (Benjamin Trueman, PhD)](https://bentrueman.github.io/)
-
+CWRS Helper: https://github.com/bentrueman/cwrshelpr<br><br>
+FFF Processor: https://github.com/bentrueman/fffprocessr#readme<br><br>
+Predict Equilibrium Lead and Copper Solubility: https://github.com/bentrueman/pbcusol<br><br>
+Time Series Decomposition Using Robust GAMs: https://github.com/bentrueman/gam-car1<br><br>

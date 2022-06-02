@@ -1,5 +1,5 @@
 ---
-title: "Water System B Plant"
+title: "Lake Major Pilot Plant"
 author: "Ryan Swinamer"
 ---
 

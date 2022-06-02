@@ -1,14 +1,48 @@
 ---
-title: "Disinfection of Porous Materials Using Immersive UV-C Technologies"
+title: "Centre of Water Resources Studies (CWRS) Data Hub"
 site: distill::distill_website
+bibliography: references.bib
 ---
 
-
-```{r,layout="l-page",message = F, warning=F, echo =F}
-knitr::include_graphics("IUVA.png")
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-<h2> Associated Work </h2>
-Immersive ultraviolet disinfection of E. coli and MS2 phage on woven cotton textiles: https://www.researchsquare.com/article/rs-1454342/v1<br><br>
-Assessing the impact of multiple ultraviolet disinfection cycles on N95 filtering facepiece respirator integrity: https://www.nature.com/articles/s41598-021-91706-1<br><br>
-Specificity of UV-C LED disinfection efficacy for three N95 respirators: https://www.nature.com/articles/s41598-021-94810-4<br><br>
+```{r global, include=FALSE}
+# load data in 'global' chunk so it can be shared
+# by all users of the dashboard
+library(distill)
+library(plotly)
+library(shiny)
+library(shinydashboard)
+library(ggplot2)
+library(ggthemes)
+library(dplyr)
+library(shinythemes)
+library(bslib)
+library(lubridate)
+```
+
+This website serves as a data hub that displays projects conducted by Centre of Water Resources Studies (CWRS), Dalhousie University:
+
+
+[Nova Scotia wastewater COVID-19 surveillance](https://cwrs-dal.github.io/CWRS-DAL.io/c19ww.html)
+
+[Wastewater treatment plant optimization](https://cwrs-dal.github.io/CWRS-DAL.io/wwtp.html)
+
+[Drinking water treatment plant optimization](https://cwrs-dal.github.io/CWRS-DAL.io/lmp.html)
+
+[Lead (Pb) solubility modelling](https://cwrs-dal.github.io/CWRS-DAL.io/LRC.html)
+
+[R packages developed by our team](https://cwrs-dal.github.io/CWRS-DAL.io/pack.html)
+
+<br>
+Contact:
+
+Centre for Water Resources Studies
+Office D-514, Dalhousie University
+1360 Barrington Street
+Halifax Nova Scotia
+Canada, B3H 4R2
+902.494.6070
+Email: water@dal.ca

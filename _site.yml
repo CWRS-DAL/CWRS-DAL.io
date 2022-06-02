@@ -1,5 +1,5 @@
 name: "cwrs.github.io"
-title: ""
+title: "CWRS Data Hub"
 theme: mytheme.css
 description: |
   CWRS Data Hub
@@ -10,6 +10,37 @@ navbar:
   search: true
   logo:
     image: water-studies.png
+    href: https://reillypickard.github.io/CwrsDataHub.io/
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Wastewater Dashboards"
+      menu:
+        - text: "Covid-19 Wastewater Research"
+          href: c19ww.html
+        - text: "WWTF Optimization Project"
+          href: wwtp.html
+    - text: "Drinking Water Dashboards"
+      menu:
+        - text: "AFNWA"
+          href: afnwa.html
+        - text: "Lake Major"
+          href: lmp.html
+    - text: "Models and Packages"
+      menu: 
+        - text: "Lead Release Control" 
+          href: LRC.html
+        - text: "Packages"
+          href: pack.html
+    - text: "Other"
+      menu:
+        - text: "Examples"
+          href: example.html
+        - text: "Tutorials"
+          href: tut.html
+        - text: "Sean's Poster"
+          href: a.html
+
 output: distill::distill_article
  
     
