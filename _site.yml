@@ -38,8 +38,8 @@ navbar:
           href: example.html
         - text: "Tutorials"
           href: tut.html
-        - text: "Sean's Poster"
-          href: a.html
+        - text: "Method Development Plots"
+          href: mdp.html
 
 output: distill::distill_article
  
